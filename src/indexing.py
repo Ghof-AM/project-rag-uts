@@ -3,6 +3,7 @@ import pypdf
 import pickle
 import faiss
 import numpy as np
+import pandas as pd
 from src.embeddings import get_embedding_model
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,26 +15,74 @@ CHUNKS_PATH = BASE_DIR / "chunks.pkl"
 # ── 1. DOCUMENT LOADER ──────────────────────────────────────────────────────
 def load_documents() -> list[dict]:
     """
-    Memuat semua PDF dan TXT dari folder data/.
-    Wajib: minimal 2 format berbeda (memenuhi bobot 10%).
+    Memuat semua PDF, TXT, dan CSV dari folder data/.
+    CSV akan digabung dan disimpan sebagai structured data.
     """
     documents = []
+    csv_data = []
 
     for file_path in sorted(DATA_DIR.glob("*")):
         text = ""
+
         if file_path.suffix.lower() == ".pdf":
             reader = pypdf.PdfReader(str(file_path))
             for page in reader.pages:
                 text += (page.extract_text() or "") + "\n"
+
         elif file_path.suffix.lower() == ".txt":
             with open(file_path, "r", encoding="utf-8") as f:
                 text = f.read()
+
+        elif file_path.suffix.lower() == ".csv":
+            try:
+                df = pd.read_csv(file_path)
+
+                # rapikan kolom
+                df.columns = df.columns.str.lower().str.strip()
+
+                # handle typo umum
+                if "descryption" in df.columns:
+                    df.rename(columns={"descryption": "description"}, inplace=True)
+
+                if "name" not in df.columns:
+                    print(f"  [Loader] ⚠️ Skip {file_path.name} (tidak ada kolom 'name')")
+                    continue
+
+                csv_data.append(df)
+                print(f"  [Loader] ✅ CSV loaded: {file_path.name} ({len(df)} rows)")
+
+            except Exception as e:
+                print(f"  [Loader] ❌ Gagal baca CSV {file_path.name}: {e}")
+
         else:
-            continue  # skip format lain
+            continue
 
         if text.strip():
             documents.append({"text": text, "source": file_path.name})
             print(f"  [Loader] ✅ {file_path.name} ({len(text):,} karakter)")
+
+    # 🔥 gabungkan semua CSV berdasarkan 'name'
+    if csv_data:
+        try:
+            merged_df = csv_data[0]
+            for df in csv_data[1:]:
+                merged_df = pd.merge(merged_df, df, on="name", how="outer")
+
+            merged_df = merged_df.fillna("")
+
+            # opsional: hapus duplikasi
+            merged_df = merged_df.drop_duplicates(subset=["name"])
+
+            # 🔥 simpan sebagai structured data (bukan text)
+            documents.append({
+                "data": merged_df.to_dict(orient="records"),
+                "source": "merged_csv"
+            })
+
+            print(f"  [Loader] ✅ CSV digabung ({len(merged_df)} baris)")
+
+        except Exception as e:
+            print(f"  [Loader] ❌ Gagal merge CSV: {e}")
 
     return documents
 
