@@ -42,64 +42,43 @@ RAG-UTS-Kelompok 5/
 ⚡ Cara Memulai (Quickstart)
 1. Clone & Setup
 # Clone repository ini
-git clone https://github.com/[username]/rag-uts-[kelompok].git
-cd rag-uts-[kelompok]
-
-# Buat virtual environment
-python -m venv venv
-source venv/bin/activate        # Linux/Mac
-# atau: venv\Scripts\activate   # Windows
+git clone https://github.com/Ghof-AM/project-rag-uts.git
 
 # Install dependencies
 pip install -r requirements.txt
-2. Konfigurasi API Key
-# Salin template env
-cp .env.example .env
 
-# Edit .env dan isi API key Anda
-# JANGAN commit file .env ke GitHub!
 3. Siapkan Dokumen
 Letakkan dokumen sumber Anda di folder data/:
 
 # Contoh: salin PDF atau TXT ke folder data
 cp dokumen-saya.pdf data/
-4. Jalankan Indexing (sekali saja)
-python src/indexing.py
-5. Jalankan Sistem RAG
-# Dengan Streamlit UI
-streamlit run ui/app.py
 
-# Atau via CLI
-python src/query.py
-🔧 Konfigurasi
-Semua konfigurasi utama ada di src/config.py (atau langsung di setiap file):
+4. Jalankan Indexing (sekali saja)
+python -m src.indexing
+
+6. Jalankan Sistem RAG
+# Dengan Streamlit UI
+ python -m streamlit run ui/app.py 
 
 Parameter	Default	Keterangan
-CHUNK_SIZE	500	Ukuran setiap chunk teks (karakter)
-CHUNK_OVERLAP	50	Overlap antar chunk
-TOP_K	3	Jumlah dokumen relevan yang diambil
-MODEL_NAME	(isi)	Nama model LLM yang digunakan
+CHUNK_SIZE	1000	
+CHUNK_OVERLAP	200	
+TOP_K	8	
+MODEL_NAME	(paraphrase-multilingual-mpnet-base-v2")	Nama model LLM yang digunakan
 📊 Hasil Evaluasi
-(Isi setelah pengujian selesai)
 
 #	Pertanyaan	Jawaban Sistem	Jawaban Ideal	Skor (1-5)
-1	...	...	...	...
-2	...	...	...	...
-Rata-rata Skor: ...
-Analisis: ...
+ada di dokumen hasil_evaluasi.xlsx
 
 🏗️ Arsitektur Sistem
-(Masukkan gambar diagram arsitektur di sini)
+ada di dokumen Arsitektur.png
 
-[Dokumen] → [Loader] → [Splitter] → [Embedding] → [Vector DB]
-                                                         ↕
-[User Query] → [Query Embed] → [Retriever] → [Prompt] → [LLM] → [Jawaban]
 📚 Referensi & Sumber
-Framework: (LangChain docs / LlamaIndex docs)
-LLM: (Groq / Gemini / Ollama)
-Vector DB: (ChromaDB / FAISS docs)
-Tutorial yang digunakan: (cantumkan URL)
+Framework: From Scratch
+LLM: Ollama
+Vector DB: FAISS docs
+Tutorial yang digunakan: AI guide
 👨‍🏫 Informasi UTS
 Mata Kuliah: Data Engineering
 Program Studi: D4 Teknologi Rekayasa Perangkat Lunak
-Deadline: (isi tanggal)
+Deadline: 26/04/2026
