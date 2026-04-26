@@ -1,1 +1,13 @@
-.venv
+.venv/
+.venv_bak_*/
+
+__pycache__/
+*.pyc
+
+models/
+
+*.pkl
+*.index
+
+python-*.exe
+*.safetensors

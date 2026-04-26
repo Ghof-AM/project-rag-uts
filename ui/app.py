@@ -38,7 +38,7 @@ with st.sidebar:
         st.warning("⚠️ Index belum dibuat")
 
 # ── MAIN UI ──────────────────────────────────────────────────────────────────
-st.title("RAG-System Ask everything about document you have inserted")
+st.title("RAG-System UTS")
 st.caption("Semantic Search · BM25 Hybrid · Multi-turn Chat · Sumber Dokumen Lokal")
 
 # Inisialisasi chat history
