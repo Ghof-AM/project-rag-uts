@@ -15,12 +15,12 @@ Vector DB yang Digunakan: (FAISS)
 
 🗂️ Struktur Proyek
 RAG-UTS-Kelompok 5/
-├── data/                    
-│   └── acer_aspire_3.pdf 
-│   └── deskripsi_laptop.csv
-│   └── harga_laptop.csv
-│   └── IdeaPad_Slim_3_14IAH8_Spec.pdf
-│   └── ThinkPad_T14_Gen_1_AMD_Spec.pdf
+├── data/
+│   ├── acer_aspire_3.pdf
+│   ├── deskripsi_laptop.csv
+│   ├── harga_laptop.csv
+│   ├── IdeaPad_Slim_3_14IAH8_Spec.pdf
+│   ├── ThinkPad_T14_Gen_1_AMD_Spec.pdf
 │   └── ThinkPad_T480_Spec.pdf
 ├── src/
 │   ├── __init__.py
