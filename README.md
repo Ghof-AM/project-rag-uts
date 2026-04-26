@@ -32,6 +32,7 @@ RAG-UTS-Kelompok 5/
 │   └── app.py               # 🔧 WAJIB DIISI: Antarmuka Streamlit
 ├── docs/
 │   └── arsitektur.png       # 📌 Diagram arsitektur (buat sendiri)
+│   └── Laporan UTS Data Engineering - kelompok 2.pdf
 ├── evaluation/
 │   └── hasil_evaluasi.xlsx  # 📌 Tabel evaluasi 10 pertanyaan
 ├── .env.example             # Template environment variables
@@ -66,7 +67,7 @@ CHUNK_OVERLAP	200
 TOP_K	8	
 MODEL_NAME	(paraphrase-multilingual-mpnet-base-v2")	Nama model LLM yang digunakan
 📊 Hasil Evaluasi
-
+ada di dokumen Laporan UTS Data Engineering - kelompok 2.pdf
 #	Pertanyaan	Jawaban Sistem	Jawaban Ideal	Skor (1-5)
 ada di dokumen hasil_evaluasi.xlsx
 
