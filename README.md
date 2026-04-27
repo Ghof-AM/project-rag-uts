@@ -36,12 +36,13 @@ RAG-UTS-Kelompok-5/
 │   ├── __init__.py
 │   ├── embeddings.py              # Konfigurasi model embedding
 │   ├── indexing.py                # Pipeline pemrosesan dokumen ke Vector DB
-│   └── query.py                   # Logika retrieval dan augmentasi ke LLM
+│   ├── query.py                   # Logika retrieval dan augmentasi ke LLM
+│   └── utils.py                   # Utilitas (download model, dll.)
 ├── ui/
 │   └── app.py                     # Interface Streamlit
 ├── docs/
-│   ├── arsitektur.png             # Diagram arsitektur sistem
-│   └── Laporan UTS Data Engineering - Kelompok 5.pdf
+│   ├── Arsitektur.png             # Diagram arsitektur sistem
+│   └── Laporan UTS Data Engineering - kelompok 2.pdf
 ├── evaluation/
 │   └── hasil_evaluasi.xlsx        # Tabel evaluasi 10 pertanyaan
 ├── .env.example                   # Template environment variables
@@ -121,27 +122,13 @@ Semua konfigurasi utama dapat diatur langsung di setiap file `src/`:
 
 ## 📊 Hasil Evaluasi
 
-| # | Pertanyaan | Jawaban Sistem | Jawaban Ideal | Skor (1-5) |
-|---|-----------|----------------|---------------|------------|
-| 1 | ... | ... | ... | ... |
-| 2 | ... | ... | ... | ... |
-| 3 | ... | ... | ... | ... |
-| 4 | ... | ... | ... | ... |
-| 5 | ... | ... | ... | ... |
-| 6 | ... | ... | ... | ... |
-| 7 | ... | ... | ... | ... |
-| 8 | ... | ... | ... | ... |
-| 9 | ... | ... | ... | ... |
-| 10 | ... | ... | ... | ... |
-
-**Rata-rata Skor:** ...  
-**Analisis:** ...
+Detail evaluasi (10 pertanyaan) tersedia di `evaluation/hasil_evaluasi.xlsx`.
 
 ---
 
 ## 🏗️ Arsitektur Sistem
 
-> *(Masukkan gambar diagram arsitektur di sini — lihat `docs/arsitektur.png`)*
+> *(Masukkan gambar diagram arsitektur di sini — lihat `docs/Arsitektur.png`)*
 
 ```
 [Dokumen PDF/CSV]
