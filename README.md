@@ -204,4 +204,4 @@ Silakan fork dan kembangkan sesuai kebutuhan.
 
 ---
 
-*© 2024 Kelompok 5 — Data Engineering D3/D4*
+*© 2026 Kelompok 5 — Data Engineering *
