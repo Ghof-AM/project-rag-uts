@@ -1,8 +1,8 @@
 # RAG Starter Pack — UTS Data Engineering
 ## Retrieval-Augmented Generation — Sistem Tanya-Jawab Cerdas Berbasis Dokumen
 
-> Dibuat dengan ❤️ — dikhususkan untuk mendapatkan informasi dari file berbentuk **CSV** atau **PDF** seputar **laptop** dengan lebih mudah.  
-> Sistem ini dibangun berbasis Starter Pack proyek RAG untuk **UTS Data Engineering D3/D4**, per kelompok masing-masing.
+> Dikhususkan untuk mendapatkan informasi dari file berbentuk **CSV** atau **PDF** seputar **laptop** dengan lebih mudah.  
+> Sistem ini dibangun berbasis Starter Pack proyek RAG untuk **UTS Data Engineering**, per kelompok masing-masing.
 
 ---
 
